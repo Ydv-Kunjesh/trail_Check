@@ -1,0 +1,307 @@
+<% layout("layouts/boilerplate") %>
+<script>
+    const MAP_API = '<%= process.env.MAP_TOKEN %>';
+    const listing = <%- JSON.stringify(listing) %>;
+</script>
+
+<!-- Updated CSS -->
+<style>
+    .text-bold {
+        font-weight: 800;
+    }
+    
+    .text-color {
+        color: #0093c4;
+    }
+    
+    .main-img img {
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        aspect-ratio: 6/8;
+        border-radius: 10%;
+    }
+    
+    .prodDetailImg {
+        height: 100%;
+    }
+    
+    /* Preview images */
+    .previews img {
+        width: 100%;
+        height: 140px;
+    }
+    
+    .main-description .category {
+        text-transform: uppercase;
+        color: #0093c4;
+    }
+    
+    .main-description .product-title {
+        font-size: 2.5rem;
+    }
+    
+    .old-price-discount {
+        font-weight: 600;
+    }
+    
+    .new-price {
+        font-size: 2rem;
+    }
+    
+    .details-title {
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 1.2rem;
+        color: #757575;
+    }
+    
+    .buttons .block {
+        margin-right: 5px;
+    }
+    
+    .quantity input {
+        border-radius: 0;
+        height: 40px;
+    }
+    
+    .custom-btn {
+        text-transform: capitalize;
+        background-color: #0093c4;
+        color: white;
+        width: 150px;
+        height: 40px;
+        border-radius: 0;
+    }
+    
+    .custom-btn:hover {
+        background-color: #0093c4 !important;
+        font-size: 18px;
+        color: white !important;
+    }
+    
+    .similar-product img {
+        height: 400px;
+    }
+    
+    .similar-product {
+        text-align: left;
+    }
+    
+    .similar-product .title {
+        margin: 17px 0px 4px 0px;
+    }
+    
+    .similar-product .price {
+        font-weight: bold;
+    }
+    
+    .questions .icon i {
+        font-size: 2rem;
+    }
+    
+    .questions-icon {
+        font-size: 2rem;
+        color: #0093c4;
+    }
+    
+    /* Small devices (landscape phones, less than 768px) */
+    @media (max-width: 767.98px) {
+        /* Make preview images responsive */
+        .previews img {
+            width: 70%;
+            height: 100%;
+        }
+    }
+    
+    .row {
+        margin-top: 1%;
+        display: flex;
+        gap: 5%;
+        justify-content: space-between;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+    
+    body {
+        background: linear-gradient(to right, #aaaacd, #c0ece9);
+    }
+    
+    /* Apply the review carousel background */
+    .reviewCarousel {
+        background: linear-gradient(to right, #aaaacd, #c0ece9);
+    }
+    </style>
+
+<div class="row">
+    <div class="col-md-5 prodDetailImg">
+        <div class="main-img">
+            <img class="img-fluid"
+                src="<%= listing.image.url %>"
+                alt="Listing Image">
+        </div>
+    </div>
+    <div class="col-md-5">
+        <div class="main-description px-2">
+            <div class="product-title text-bold my-3">
+                Name : <%= listing.title %>
+            </div>
+            <div class="price-area my-4">
+                <p class="new-price text-bold mb-1">Expectation : &#x20B9; <%= listing.price.toLocaleString('en-IN') %></p>
+                <p class="text-secondary mb-1">(Additional tax may apply on checkout)</p>
+            </div>
+
+            <!-- Conditionally display the buttons if the current user is the owner of the listing -->
+            <% if(currentUser && listing.owner.equals(currentUser._id)) { %>
+                <div class="buttons d-flex flex-column my-5">
+                    <div class="">
+                        <button class="shadow btn custom-btn" onclick="window.location.href='/listings/<%=listing._id%>/edit'">Edit Your Detail</button>
+                        <button class="shadow btn custom-btn" onclick="window.location.href='/listings/<%=listing._id%>/delete'">Delete Detail</button>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+
+        <div class="product-details my-4">
+            <p class="details-title text-color mb-1">Profient</p>
+            <p class="description"><%= listing.profession %></p>
+        </div>
+        <div class="delivery">
+            <p class="font-weight-bold mb-0"><span><i class="fa-solid fa-truck"></i></span> <b>Description of Employee</b></p>
+            <p class="text-secondary"><%= listing.description %></p>
+        </div>
+        <div class="delivery-options">
+            <p class="font-weight-bold mb-0"><span><i class="fa-solid fa-filter"></i></span> <b>City</b></p>
+            <p class="text-secondary"><%= listing.location.toUpperCase() %></p>
+        </div>
+        <div class="delivery-options">
+            <p class="font-weight-bold mb-0"><span><i class="fa-solid fa-filter"></i></span> <b>Country</b></p>
+            <p class="text-secondary"><%= listing.country.toUpperCase() %></p>
+        </div>
+        <div class="delivery-options">
+            <p class="font-weight-bold mb-0"><span><i class="fa-solid fa-filter"></i></span> <b>Delivery options</b></p>
+            <p class="text-secondary">View delivery options here <br>
+           <span class="fa-brands fa-whatsapp text-success fa-2x"><%= listing.phone %></span>
+           <span class="text-success fa-2x"><%= listing.phone %></span>
+
+            </p>
+        </div>
+       
+            <i class="fa-brands fa-rocketchat questions-icon"></i>
+                Have a question about our registered Employees at E-Store? Feel free to contact our representatives via
+                live chat or email.   
+    </div>
+</div>
+
+<div class="container">
+    <div class="d-flex flex-column flex-lg-row">
+        <!-- Review Form -->
+        <% if(currentUser) { %> 
+            <div class="flex-fill mb-4">
+                <div class="form-review">
+                    <div class="review-form">
+                        <h3>Share your experience with us</h3>
+                        <form method="post" action="/listings/<%= listing._id %>/reviews">
+                            <div class="mb-3">
+                                <fieldset class="starability-slot">
+                                    <legend>Rating:</legend>
+                                    <input type="radio" id="no-rate" class="input-no-rate"
+                                        name="review[rating]" value="1" checked aria-label="No rating." />
+                                    <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+                                    <label for="first-rate1" title="Terrible">1 star</label>
+                                    <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+                                    <label for="first-rate2" title="Not good">2 stars</label>
+                                    <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+                                    <label for="first-rate3" title="Average">3 stars</label>
+                                    <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+                                    <label for="first-rate4" title="Very good">4 stars</label>
+                                    <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+                                    <label for="first-rate5" title="Amazing">5 stars</label>
+                                </fieldset>  
+                            </div>
+                            <div class="mb-3">
+                                <label for="review" class="form-label">Review</label>
+                                <textarea required name="review[comment]" id="" cols="10" rows="5" class="form-control"></textarea>
+                            </div>
+                            <button class="btn btn-dark mt-2">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+
+        <!-- Review Carousel -->
+        <div class="flex-fill">
+            <div id="reviewCarousel" class="carousel slide reviewCarousel" data-bs-ride="carousel">
+                <!-- Carousel indicators -->
+                <div class="carousel-indicators">
+                    <% listing.reviews.forEach((review, index) => { %>
+                        <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="<%= index %>" 
+                            class="<%= index === 0 ? 'active' : '' %>" aria-current="<%= index === 0 ? 'true' : 'false' %>" 
+                            aria-label="Slide <%= index + 1 %>"></button>
+                    <% }) %>
+                </div>
+
+                <!-- Carousel inner -->
+                <div class="carousel-inner py-3">
+                    <% listing.reviews.forEach((review, index) => { %>
+                        <div class="carousel-item <%= index === 0 ? 'active' : '' %>">
+                            <div class="card h-100">
+                                <div class="card-body text-center">
+                                    <h5 class="card-title">Reviewed on: <%= new Date(review.createdAt).toLocaleDateString() %></h5>
+                                    <h6 class="card-subtitle mb-2 text-muted">Author: @<%= review.author.username %></h6>
+                                    <h6 class="card-subtitle mb-2 text-muted"><%= review.author.profession %></h6>
+                                    <!-- Centered Star Rating -->
+                                    <p class="starability-result text-center mb-4 mx-auto" data-rating="<%= review.rating %>"></p>
+
+                                    <p class="card-text"><strong>Review:</strong> <%= review.comment %></p>
+                                    <!-- Conditional Delete Button -->
+                                    <% if(currentUser && (currentUser._id.equals(review.author._id))) { %>
+                                        <form method="post" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE" class="d-inline">
+                                            <button class="btn btn-danger btn-sm">Delete</button>
+                                        </form>
+                                    <% } %>
+                                </div>
+                            </div>
+                        </div>
+                    <% }) %>
+                </div>
+
+                <!-- Carousel controls -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+  
+  
+
+
+<!-- Map -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12 mb-2 map-card">
+            <div id="map" style="width: 100%; height: 500px;"></div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/map.js"></script>
+
+
+
+
+
+
+
+
+
+

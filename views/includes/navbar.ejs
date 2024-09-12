@@ -1,0 +1,42 @@
+<nav data-scroll data-scroll-sticky data-scroll-target=".main" class="sticky-top">
+    <div class="logo">
+        <img src="https://res.cloudinary.com/dsozpzlc3/image/upload/v1725253031/wager%20footer/final_logo_nug543.png" alt="logo" onclick="window.location.href='#'">
+    </div>
+        <div class="menu" id="menu">
+            <button class="button" onclick="window.location.href='/listings'">
+                <span class="button_lg">
+                    <span class="button_sl"></span>
+                    <span class="button_text">All Listings <i class="ri-arrow-right-line"></i></span>
+                </span>
+            </button>
+            <button class="button" onclick="window.location.href='/listings/new'">
+                <span class="button_lg">
+                    <span class="button_sl"></span>
+                    <span class="button_text">Advertise yourself <i class="ri-arrow-right-line"></i></span>
+                </span>
+            </button>
+            <% if(!currentUser){ %>
+            <button class="button" onclick="window.location.href='/login'">
+                <span class="button_lg">
+                    <span class="button_sl"></span>
+                    <span class="button_text">Login <i class="ri-arrow-right-line"></i></span>
+                </span>
+            </button>
+            <button class="button" onclick="window.location.href='/signup'">
+                <span class="button_lg">
+                    <span class="button_sl"></span>
+                    <span class="button_text">Signup <i class="ri-arrow-right-line"></i></span>
+                </span>
+            </button>
+            <% }else{ %>
+            <button class="button" onclick="window.location.href='/logout'">
+                <span class="button_lg">
+                    <span class="button_sl"></span>
+                    <span class="button_text">Logout <i class="ri-arrow-right-line"></i></span>
+                </span>
+            </button>
+            <% } %>
+        </div>
+        
+    </div>
+</nav>

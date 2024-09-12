@@ -1,0 +1,480 @@
+body{
+    
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    background-color: #212121;  
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.container{
+    flex: 1;
+}
+
+
+.navbar{
+    height: 5rem;
+    position: fixed;
+    background-color: white;
+}
+.nav-link{
+    color: #222222 !important;
+}
+
+/* Footer */
+.f-info-links a:hover{
+text-decoration: none;
+color: #131212;
+}
+
+.f-info-links{
+    width: 100%;
+}
+.f-info-social{
+    /* display: flex;
+    justify-content: space-evenly; */
+    width: 100%;
+    font-size: 1.2rem;
+
+}
+
+.f-info{
+    display: flex;
+    height: 5rem;
+    background-color: rgba(133, 165, 85, 0.247);
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: space-evenly;
+    text-align: center;
+}
+
+/* cards */
+.card{
+    border: none;
+    margin-bottom: 2rem;
+}
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover !important;
+}
+.card-body{
+    padding: 0 !important;
+}
+.card-text p {
+    font-weight: 400;
+}
+.worker-list{
+    text-decoration: none;
+}
+
+/* overlay effects */
+.card-img-overlay{
+    opacity: 0;
+}
+
+.card:hover .card-img-overlay{
+    opacity: 0.2;
+    background-color:white;
+}
+
+/* EDIT FORM CSS */
+/* .container{
+    margin-bottom:5%;
+  } */
+  
+  #form-header{
+    margin-top:5%;
+    text-align:center;
+  }
+  
+  #form-tagline{
+    background: #ff6d00;
+    border-top-left-radius: 0.5rem;
+      border-bottom-left-radius: 0.5rem;
+    color:#ffffff;
+    margin-top:5%;
+    padding: 4%;
+    text-align:left;
+  }
+  
+  #form-tagline .fa{
+    margin-bottom:15%;
+  }
+  
+  #form-tagline h2 {
+    margin-bottom:15%;
+  }
+  
+  #form-content{
+    background: #f4f4f4;
+    border-top-right-radius: 0.5rem;
+      border-bottom-right-radius:0.5rem;
+    margin-top:5%;
+    padding: 3%;
+  }
+  
+  .form-group{
+    margin-top:5%;
+  }
+  
+  .contact{
+      padding: 4%;
+      height: 400px;
+  }
+  
+  .control-label{
+    font-size:16px;
+      font-weight:600;
+  }
+  
+  div .submit-button{
+    margin-top:3%;
+    text-align:right;
+  }
+  
+  button#submit{
+    white-space: normal;
+    width:auto;
+      background: #ff6d00;
+      color: #ffffff;
+    font-weight: 600;
+      width: 25%;
+  }
+
+/* Single Worker */
+
+.show-img{
+  width: 20vw;
+  height: 40vh;
+  border-radius: 3rem;
+}
+.show-desc li{
+ list-style: none;
+}
+
+/* Review  card Css */
+.form-review{
+  display: flex;
+  flex-direction:row;
+  gap: 50px;
+}
+.review-form{
+  width: auto;
+  background-color: rgba(92, 170, 167, 0.256);
+  height: 30rem;
+  font-family: algerian;
+
+}
+.review-card{
+  width: 70vw;
+}
+.review-card{
+  /* background-color: rgb(158, 95, 126); */
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            /* background-color: aquamarine; */
+            height: auto;
+            /* width: 80vw; */
+            /* margin: auto; */
+            align-content: space-around;  
+            justify-content: space-around; 
+}
+.review-cards{
+            margin: 1%;
+            padding: 2%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            background-color: bisque;
+            border-radius: 5%;
+}
+
+.flash{
+  background-color: #131212;
+  color: rgb(60, 219, 153);
+  padding: 10px;
+  /* text-align: center; */
+  border-radius:1rem;
+  margin-bottom: 0.4px;
+  font-family: algerian;
+
+}
+
+#map{
+  height: 40vh;
+  width: 60vw;
+  margin-bottom: 0.5rem !important;
+ } 
+
+    #fly {
+      display: block;
+      position: relative;
+      margin: 0px auto;
+      width: 50%;
+      height: 40px;
+      padding: 10px;
+      border: none;
+      border-radius: 3px;
+      font-size: 12px;
+      text-align: center;
+      color: #fff;
+      background: #ee8a65;
+    }
+
+
+    
+
+    /* Navbar */
+
+    nav{
+      /* overflow: hidden; */
+      position: fixed;
+      top: 0;
+      z-index: 999;
+      width: 100%;
+      height: 12vh;
+      background-color: #eef0f2b3;
+      backdrop-filter: blur(2px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 4vw;
+      border-bottom: 2.5px solid #E0E0E0;
+  
+      .logo{
+          img{
+              width: 15vw;
+          }
+      }
+  
+      .right{
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          position: relative;
+  
+          .hamburger {
+              cursor: pointer;
+              z-index: 1999;
+            }
+            
+            .hamburger input {
+              display: none;
+            }
+            
+            .hamburger svg {
+              /* The size of the SVG defines the overall size */
+              height: 3em;
+              /* Define the transition for transforming the SVG */
+              transition: transform 600ms cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            .line {
+              fill: none;
+              stroke: #000;
+              stroke-linecap: round;
+              stroke-linejoin: round;
+              stroke-width: 3;
+              /* Define the transition for transforming the Stroke */
+              transition: stroke-dasharray 600ms cubic-bezier(0.4, 0, 0.2, 1),
+                          stroke-dashoffset 600ms cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            
+            .line-top-bottom {
+              stroke-dasharray: 12 63;
+            }
+            
+            .hamburger input:checked + svg {
+              transform: rotate(-45deg);
+            }
+            
+            .hamburger input:checked + svg .line-top-bottom {
+              stroke-dasharray: 20 300;
+              stroke-dashoffset: -32.42;
+            }
+            
+  
+  
+          .menu{
+              position: absolute;
+              width: 60vw;
+              height: 115vh;
+              z-index: 1019;
+              backdrop-filter: blur(3px);
+              -webkit-backdrop-filter: blur(10px);
+              background-color: #101010;
+              right: -3500%;
+              top: -150%;
+              padding: 0vh 5vw;
+              touch-action: none;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: start;
+              gap: 2.5vh;
+              transition: 1s;
+          }
+  
+  
+  
+  
+          a{
+              text-decoration: none;
+              color: #fff;
+              font-size: 2.4vw;
+              position: relative;
+              text-transform: uppercase;
+              transition: color .7s;
+              opacity: 0;
+              perspective: 100px;
+              transform: rotateX(100deg);
+              letter-spacing: 2px;
+          }
+  
+          a::after{
+              content: "";
+              width: 0%;
+              height: 3px;
+              position: fixed;
+              background-color: #fff;
+              position: absolute;
+              left: 0%;
+              bottom: -3%;
+              transition: width .5s;
+          }
+  
+          a:hover{
+              color: #6f6f6f;
+          }
+  
+          a:hover::after{
+              width: 100%;
+          }
+  
+          .button {
+              -moz-appearance: none;
+              -webkit-appearance: none;
+              appearance: none;
+              border: none;
+              background: none;
+              color: #0f1923;
+              cursor: pointer;
+              position: relative;
+              padding: 6px;
+              font-size: 1vw;
+              position: absolute;
+              bottom: 10%;
+              opacity: 0;
+            }
+            
+            .button::before,
+            .button::after {
+              content: '';
+              display: block;
+              position: absolute;
+              right: 0;
+              left: 0;
+              height: calc(50% - 5px);
+              border: 1px solid #7D8082;
+              transition: all .15s ease;
+            }
+            
+            .button::before {
+              top: 0;
+              border-bottom-width: 0;
+            }
+            
+            .button::after {
+              bottom: 0;
+              border-top-width: 0;
+            }
+            
+            .button:active,
+            .button:focus {
+              outline: none;
+            }
+            
+            .button:active::before,
+            .button:active::after {
+              right: 3px;
+              left: 3px;
+            }
+            
+            .button:active::before {
+              top: 3px;
+            }
+            
+            .button:active::after {
+              bottom: 3px;
+            }
+            
+            .button_lg {
+              position: relative;
+              display: block;
+              padding: 10px 20px;
+              color: #101010;
+              background-color: #444444;
+              overflow: hidden;
+              box-shadow: inset 0px 0px 0px 1px transparent;
+            }
+            
+            .button_lg::before {
+              content: '';
+              display: block;
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 2px;
+              height: 2px;
+              background-color: #444444;
+            }
+            
+            .button_lg::after {
+              content: '';
+              display: block;
+              position: absolute;
+              right: 0;
+              bottom: 0;
+              width: 4px;
+              height: 4px;
+              background-color: #444444;
+              transition: all .2s ease;
+            }
+            
+            .button_sl {
+              display: block;
+              position: absolute;
+              top: 0;
+              bottom: -1px;
+              left: -8px;
+              width: 0;
+              background-color: #fff;
+              transform: skew(-15deg);
+              transition: all .5s ease;
+            }
+            
+            .button_text {
+              position: relative;
+              font-size: 1vw;
+              color: #fff;
+              letter-spacing: 1px;
+            }
+            
+            .button:hover .button_text{
+              color: #101010;
+              font-weight: 600;
+            }
+            
+            .button:hover .button_sl {
+              width: calc(100% + 15px);
+            }
+            
+            .button:hover .button_lg::after {
+              background-color: #fff;
+            }      
+      }
+  }

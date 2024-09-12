@@ -1,0 +1,76 @@
+  <% layout("layouts/boilerplate") %>
+  <style>
+    body{
+      background: linear-gradient(to right, #aaaacd, #c0ece9);
+    }
+  </style>
+ 
+   <div class="form_wrapper">
+    <div class="form_container">
+      <div class="title_container">
+        <h2>Registration Form</h2>
+      </div>
+      <div class="row clearfix">
+        <div class="">
+          <form method="post" action="/listings/new" class="needs-validation" enctype="multipart/form-data">
+            <div class="row clearfix">
+                <div class="col_half">
+                  <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                    <input type="text" name="listing[title]"placeholder="Full Name" />
+                  </div>
+                </div>
+                <div class="col_half">
+                  <div class="input_field"> <span><i aria-hidden="true" class=""></i></span>
+                    <input type="file" name="listing[image]"placeholder="image" required />
+                  </div>
+                </div>
+                <div class="col_half">
+                  <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                    <input type="text" name="listing[location]"placeholder="City" />
+                  </div>
+                </div>
+                <div class="col_half">
+                  <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                    <input type="text" name="listing[country]" placeholder="Country" required />
+                  </div>
+                </div>
+                <div class="col_half">
+                  <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                    <input type="text" name="listing[price]"placeholder="price" required />
+                  </div>
+                </div>
+                <div class="col_half">
+                  <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                    <input type="text" name="listing[phone]"placeholder="Phone" required />
+                  </div>
+                </div>
+              </div>
+              <div class="">
+                <div class="input_field"> <span><i aria-hidden="true" class="fa fa-user"></i></span>
+                  <input type="text" name="listing[description]"placeholder="Description of  your work" required />
+                </div>
+              </div>
+                <div class="input_field select_option">
+                    <select name="listing[Profession]" id="Profession">
+                        <option selected disabled>Select Your Profession</option>
+                        <option value="Web Developer">Web Developer</option>
+                        <option value="IT-Technician">IT-Technician</option>
+                        <option value="Civil-Engineer">Civil-Engineer</option>
+                        <option value="UI/UX Designer">UI/UX Designer</option>
+                    </select>
+                  <div class="select_arrow"></div>
+                </div>
+              <div class="input_field checkbox_option">
+                  <input type="checkbox" id="cb1">
+                  <label for="cb1">I agree with terms and conditions</label>
+              </div>
+              <div class="input_field checkbox_option">
+                  <input type="checkbox" id="cb2">
+                  <label for="cb2">I want to receive the newsletter</label>
+              </div>
+            <input class="button" type="submit" value="Register" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
