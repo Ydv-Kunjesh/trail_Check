@@ -10,7 +10,7 @@ cloudinary.config({
 const storage = new CloudinaryStorage({
   cloudinary: cloudinary,
   params: {
-      folder: 'wager_king',
+      folder: 'synergistiHire',
       allowedFormat: ['jpg', 'png', 'jpeg']
   }
 });

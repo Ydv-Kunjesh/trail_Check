@@ -21,7 +21,7 @@ router.get("/",wrapAsync( listingController.index))
 
 
 
-router.get("/kunju", isLoggedIn, listingController.newListingForm);
+// router.get("/kunju", isLoggedIn, listingController.newListingForm);
 
 
 
