@@ -4,9 +4,10 @@
   "description": "a ",
   "main": "index.js",
   "scripts": {
-    "debug": "node --inspect index",
-    "dev": "nodemon index"
-  },
+  "debug": "node --inspect index",
+  "dev": "nodemon index",
+  "build": "node index"
+},
   "author": "Kunjesh Yadav ",
   "license": "ISC",
   "dependencies": {

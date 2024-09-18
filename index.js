@@ -116,6 +116,6 @@ app.use((err,req,res,next)=>{
     // res.status(statusCode).send(message);
     // res.send(`Something went Wrong`)
 })
-app.listen(8080,()=>{
+app.listen(3000,()=>{
     console.log(`Listening to port ${`8080`}`);   
 }) 

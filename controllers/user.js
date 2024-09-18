@@ -38,14 +38,19 @@ module.exports.postLogin = async (req, res) => {
 module.exports.logout = (req, res, next) => {
     if (!req.user) {
         req.flash('error', 'You must be logged in to log out!');
-        return res.redirect('/login');
+        return res.redirect('/login'); 
+        
     }
+    
     const { username } = req.user;
     req.logout((err) => {
         if (err) {
-            return next(err); // Pass the error to the next middleware
+            return next(err); 
         }
         req.flash('success', `Hey ${username}, you have logged out successfully`);
-        return res.redirect('/listings'); // Ensure return to prevent further execution
+        return res.redirect('/listings');
     });
-}
+};
+
+
+
