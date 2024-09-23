@@ -1,24 +1,24 @@
+<style>
+    .custom-alert {
+        position: relative; /* or absolute, depending on your layout */
+        z-index: 9999; /* Adjust this value as needed */
+        margin-bottom: 0; /* Prevents margin from the bottom */
+        width: 50%; /* Sets the width to half of the container */
+        margin-left: auto; /* Centers the alert horizontally */
+        margin-right: auto; /* Centers the alert horizontally */
+    }
+</style>
 
 <% if(success && success.length) { %>
-<div class="alert alert-warning alert-dismissible fade show mt-3" role="alert" >
-<%= success %>
-<button type="button" class="btn-close" data-dismiss="alert"
-    aria-label="Close">
-</button>
+<div class="alert alert-warning alert-dismissible fade show custom-alert mt-3" role="alert">
+    <%= success %>
+    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
 </div>
 <% } %>
 
-
-
 <% if(error && error.length) { %>
-<div class="alert alert-danger alert-dismissible fade show" 
-role="alert">
-<%= error %>
-<button 
-type="button" 
-class="btn-close" 
-data-dismiss="alert"
-aria-label="Close">
-</button>
+<div class="alert alert-danger alert-dismissible fade show custom-alert" role="alert">
+    <%= error %>
+    <button type="button" class="btn-close" data-dismiss="alert" aria-label="Close"></button>
 </div>
 <% } %>
